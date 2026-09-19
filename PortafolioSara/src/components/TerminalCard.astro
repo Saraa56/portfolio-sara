@@ -1,0 +1,28 @@
+---
+interface Props {
+	lines: { prompt?: boolean; text: string }[];
+}
+
+const { lines } = Astro.props;
+---
+
+<div class="w-full max-w-sm rounded-xl border border-line bg-ink text-paper shadow-[6px_6px_0_0_var(--color-amber)]">
+	<div class="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+		<span class="h-2.5 w-2.5 rounded-full bg-white/25"></span>
+		<span class="h-2.5 w-2.5 rounded-full bg-white/25"></span>
+		<span class="h-2.5 w-2.5 rounded-full bg-white/25"></span>
+	</div>
+	<div class="space-y-1.5 px-4 py-4 font-mono text-[13px] leading-relaxed">
+		{
+			lines.map((line) => (
+				<p>
+					{line.prompt !== false && <span class="text-amber">{'> '}</span>}
+					{line.text}
+				</p>
+			))
+		}
+		<p class="text-amber">
+			<span class="animate-pulse">▍</span>
+		</p>
+	</div>
+</div>

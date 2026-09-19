@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const certificates = [
+	{
+		title: 'Fundamentos de AWS: Cloud, Serverless y Operación',
+		issuer: 'Commit Academy',
+		date: 'Sept. 2026',
+		meta: 'ID: cert_SL6VCLiFmN',
+	},
+	{
+		title: 'Astro 4 con View Transitions, React, TypeScript, Tailwind',
+		issuer: 'Udemy',
+		date: 'Ene. 2025',
+		meta: 'Aptitudes: React.js, TypeScript y 2 más',
+	},
+	{
+		title: 'Semana de la Inteligencia Artificial',
+		issuer: 'Hashtag Treinamentos',
+		date: 'Ago. 2026',
+		meta: 'Aptitudes: Artificial Intelligence (AI)',
+	},
+	{
+		title: 'Diseño UX/UI para Landing Pages',
+		issuer: 'Domestika',
+		date: 'Ago. 2026',
+		meta: 'ID: 07f3a5489e3695d15352a0679f3021b2',
+	},
+	{
+		title: 'Curso de Fundamentos de JavaScript',
+		issuer: 'Platzi',
+		date: 'Ago. 2025',
+		meta: 'ID: bdea7678-987b-4a23-9183-a93756b33f65',
+	},
+	{
+		title: 'Curso de Introducción al Desarrollo Backend',
+		issuer: 'Platzi',
+		date: 'Jul. 2025',
+		meta: 'ID: afd843d4-5b88-4a5d-baa2-575ff79481bf',
+	},
+];
+---
+
+<Layout title="Certificados — Sara Otero" description="Certificaciones y cursos completados por Sara Otero Useche.">
+	<section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+		<h1 class="font-display text-3xl text-ink sm:text-4xl">Certificados</h1>
+		<p class="mt-3 max-w-xl text-base text-ink-soft">Cursos y certificaciones que he completado.</p>
+
+		<div class="mt-10 grid gap-4 sm:grid-cols-2">
+			{
+				certificates.map((cert) => (
+					<article class="rounded-xl border border-line bg-white/60 p-5">
+						<h2 class="font-display text-base text-ink">{cert.title}</h2>
+						<p class="mt-1 text-sm text-ink-soft">
+							{cert.issuer} <span class="text-line">·</span> {cert.date}
+						</p>
+						<p class="mt-2 font-mono text-xs text-indigo-dim">{cert.meta}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>

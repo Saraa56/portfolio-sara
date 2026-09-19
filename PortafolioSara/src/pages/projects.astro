@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+	{
+		title: 'NodoVerde — App de métricas ODS',
+		description:
+			'App académica de equipo, web y móvil, para el seguimiento de métricas de un Objetivo de Desarrollo Sostenible. Backend en Node.js y TypeScript con arquitectura hexagonal, frontend móvil en React Native y base de datos PostgreSQL.',
+		stack: ['React Native', 'Express.js', 'TypeScript', 'PostgreSQL'],
+		status: 'Finalizado',
+		repoUrl: 'https://github.com/Saraa56/NodoVerde-ODS-App',
+	},
+	{
+		title: 'EventHub',
+		description:
+			'Plataforma de gestión de eventos construida con Vite, React y Tailwind CSS v4. Actualmente en desarrollo activo.',
+		stack: ['React', 'Vite', 'Tailwind CSS'],
+		status: 'En progreso',
+	},
+	{
+		title: 'Proyecto E-Commerce',
+		description:
+			'Diseño de estructura y UX/UI propio para una tienda en línea, llevado a una implementación con apoyo de IA.',
+		stack: ['React', 'TypeScript'],
+		status: 'Finalizado',
+	},
+	{
+		title: 'E-commerce con Hostinger',
+		description:
+			'Nueva tienda en línea en camino, construida y desplegada sobre Hostinger.',
+		stack: ['Hostinger'],
+		status: 'Próximamente',
+	},
+	{
+		title: 'Exploración de interfaces web',
+		description: 'Prototipos e interfaces interactivas mediante generación asistida por IA.',
+		stack: ['React', 'TypeScript', 'v0 by Vercel'],
+		status: 'Prototipo',
+	},
+];
+---
+
+<Layout title="Proyectos — Sara Otero" description="Proyectos de desarrollo de software de Sara Otero Useche.">
+	<section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+		<h1 class="font-display text-3xl text-ink sm:text-4xl">Proyectos</h1>
+		<p class="mt-3 max-w-xl text-base text-ink-soft">
+			Una selección de lo que he construido y lo que estoy construyendo ahora.
+		</p>
+
+		<div class="mt-10 grid gap-6 sm:grid-cols-2">
+			{projects.map((project) => <ProjectCard {...project} />)}
+
+			<a
+				href="/contact"
+				class="flex flex-col items-start justify-center gap-2 rounded-xl border border-dashed border-line p-6 text-ink-soft transition-colors hover:border-indigo hover:text-indigo"
+			>
+				<span class="font-display text-lg">+ Próximo proyecto</span>
+				<span class="text-sm">¿Tienes una idea? Escríbeme.</span>
+			</a>
+		</div>
+	</section>
+</Layout>

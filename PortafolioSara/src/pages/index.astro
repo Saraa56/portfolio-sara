@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TerminalCard from '../components/TerminalCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const terminalLines = [
+	{ text: 'whoami' },
+	{ prompt: false, text: 'Sara Otero — Ingeniería de Software' },
+	{ text: 'stack --list' },
+	{ prompt: false, text: 'React · TypeScript · Astro · SQL Server · AWS' },
+	{ text: 'status' },
+	{ prompt: false, text: 'Disponible para nuevas oportunidades' },
+];
+---
+
+<Layout>
+	<section class="mx-auto grid max-w-4xl gap-12 px-6 py-16 sm:py-24 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+		<div>
+			<p class="font-mono text-sm text-indigo-dim">Portafolio</p>
+			<h1 class="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
+				Hola, soy Sara Otero. Conecto datos empresariales con web moderna.
+			</h1>
+			<p class="mt-5 max-w-md text-base leading-relaxed text-ink-soft">
+				Egresada de Ingeniería de Software con 18 meses de experiencia en
+				desarrollo y soporte de aplicaciones empresariales — de SQL Server y
+				JasperReports a interfaces con React, TypeScript y Astro.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-4">
+				<a
+					href="/projects"
+					class="rounded-lg bg-indigo px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-dim"
+				>
+					Ver proyectos
+				</a>
+				<a
+					href="/contact"
+					class="rounded-lg border border-line px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-indigo hover:text-indigo"
+				>
+					Contáctame
+				</a>
+			</div>
+		</div>
+
+		<div class="justify-self-center md:justify-self-end">
+			<TerminalCard lines={terminalLines} />
+		</div>
+	</section>
+
+	<section class="border-t border-line/70 bg-paper-dim/60">
+		<div class="mx-auto max-w-4xl px-6 py-14">
+			<h2 class="font-display text-2xl text-ink">En construcción ahora</h2>
+			<div class="mt-6">
+				<ProjectCard
+					title="EventHub"
+					description="Plataforma de gestión de eventos construida con Vite, React y Tailwind CSS v4. Actualmente en desarrollo activo."
+					stack={['React', 'Vite', 'Tailwind CSS']}
+					status="En progreso"
+				/>
+			</div>
+			<a href="/projects" class="mt-6 inline-block text-sm text-indigo underline underline-offset-4">
+				Ver todos los proyectos →
+			</a>
+		</div>
+	</section>
+</Layout>

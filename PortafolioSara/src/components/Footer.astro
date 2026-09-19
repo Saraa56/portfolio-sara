@@ -1,0 +1,26 @@
+---
+const year = new Date().getFullYear();
+
+const socials = [
+	{ label: 'GitHub', href: 'https://github.com/Saraa56' },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/saraoterou/' },
+	{ label: 'Email', href: 'mailto:oteronikol12@gmail.com' },
+];
+---
+
+<footer class="border-t border-line/70">
+	<div
+		class="mx-auto flex max-w-4xl flex-col gap-3 px-6 py-8 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between"
+	>
+		<p>© {year} Sara Otero Useche. Hecho con Astro.</p>
+		<div class="flex gap-5">
+			{
+				socials.map((s) => (
+					<a href={s.href} class="transition-colors hover:text-indigo" target="_blank" rel="noreferrer">
+						{s.label}
+					</a>
+				))
+			}
+		</div>
+	</div>
+</footer>

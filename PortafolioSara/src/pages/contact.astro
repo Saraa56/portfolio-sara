@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const email = 'oteronikol12@gmail.com';
+const channels = [
+	{ label: 'GitHub', value: 'github.com/Saraa56', href: 'https://github.com/Saraa56' },
+	{ label: 'LinkedIn', value: 'linkedin.com/in/saraoterou', href: 'https://www.linkedin.com/in/saraoterou/' },
+	{ label: 'location', value: 'Bogotá, Colombia', href: null },
+];
+---
+
+<Layout title="Contacto — Sara Otero" description="Cómo contactar a Sara Otero para oportunidades y colaboraciones.">
+	<section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+		<h1 class="font-display text-3xl text-ink sm:text-4xl">Contacto</h1>
+		<p class="mt-3 max-w-xl text-base text-ink-soft">
+			Estoy abierta a nuevas oportunidades y colaboraciones. Escríbeme por
+			cualquiera de estos medios.
+		</p>
+
+		<div class="mt-10 max-w-md rounded-xl border border-line bg-ink p-6 font-mono text-sm text-paper">
+			<p class="text-amber">{'> contact --email'}</p>
+			<a href={`mailto:${email}`} class="mt-1 block break-all underline decoration-white/30 hover:decoration-white">
+				{email}
+			</a>
+
+			<ul class="mt-6 space-y-3">
+				{
+					channels.map((channel) => (
+						<li>
+							<p class="text-amber">{`> contact --${channel.label.toLowerCase()}`}</p>
+							{channel.href ? (
+								<a href={channel.href} class="block underline decoration-white/30 hover:decoration-white" target="_blank" rel="noreferrer">
+									{channel.value}
+								</a>
+							) : (
+								<p>{channel.value}</p>
+							)}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+</Layout>

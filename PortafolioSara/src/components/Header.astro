@@ -1,0 +1,58 @@
+---
+import fotoCV from '../assets/fotoCV.png';
+
+const links = [
+	{ href: '/', label: 'Inicio' },
+	{ href: '/about', label: 'Sobre mí' },
+	{ href: '/projects', label: 'Proyectos' },
+	{ href: '/certificates', label: 'Certificados' },
+	{ href: '/contact', label: 'Contacto' },
+];
+
+const current = new URL(Astro.request.url).pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-line/70 bg-paper/90 backdrop-blur">
+	<div class="mx-auto flex max-w-4xl items-center justify-between gap-4 px-6 py-4">
+		<a href="/" class="flex items-center gap-3">
+			<img
+				src={fotoCV.src}
+				alt="Foto de Sara"
+				width="40"
+				height="40"
+				class="h-10 w-10 rounded-full object-cover ring-2 ring-white"
+			/>
+			<span class="font-display text-lg text-ink">Sara Otero</span>
+		</a>
+
+		<input type="checkbox" id="nav-toggle" class="peer hidden" />
+
+		<label
+			for="nav-toggle"
+			class="cursor-pointer rounded-md border border-line px-3 py-2 text-sm text-ink sm:hidden"
+			aria-label="Abrir menú"
+		>
+			Menú
+		</label>
+
+		<nav
+			class="absolute left-0 right-0 top-full hidden flex-col gap-1 border-b border-line bg-paper px-6 py-4 peer-checked:flex sm:static sm:flex sm:flex-row sm:gap-5 sm:border-none sm:bg-transparent sm:p-0 md:gap-7"
+		>
+			{
+				links.map((link) => (
+					<a
+						href={link.href}
+						class:list={[
+							'py-1.5 text-sm transition-colors sm:py-0',
+							current === link.href
+								? 'font-medium text-indigo'
+								: 'text-ink-soft hover:text-ink',
+						]}
+					>
+						{link.label}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</header>

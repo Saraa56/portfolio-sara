@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fotoCV from '../assets/fotoCV.png';
+
+const skillGroups = [
+	{ label: 'Frontend', items: ['JavaScript', 'TypeScript', 'React', 'Astro', 'HTML5', 'CSS3', 'Tailwind', 'jQuery'] },
+	{ label: 'Backend, datos y reportería', items: ['ColdFusion', 'Payara Server', 'SQL Server', 'PostgreSQL', 'JasperReports', 'Jaspersoft Studio'] },
+	{ label: 'Cloud', items: ['AWS'] },
+	{ label: 'Herramientas', items: ['Git', 'GitHub', 'Figma', 'Claude', 'GitHub Copilot', 'v0 by Vercel', 'OpenAI'] },
+];
+
+const experience = [
+	{
+		role: 'Practicante de Ingeniería de Software · Web Analyst',
+		company: 'Corferias S.A.',
+		period: 'Ene 2026 – Jul 2026',
+		bullets: [
+			'Amplié el catálogo de reportes gerenciales en JasperReports/Jaspersoft Studio de 8 a 11 reportes.',
+			'Resolví un promedio de 3 tickets de soporte técnico diarios y desarrollé consultas SQL/procedimientos almacenados en SQL Server para aplicaciones en ColdFusion y plataformas externas de boletería e inscripción.',
+			'Implementé interfaz con JavaScript/jQuery, diseñé prototipos en Figma y gestioné el código con Git.',
+		],
+	},
+	{
+		role: 'Practicante de Ingeniería de Software',
+		company: 'Corferias S.A.',
+		period: 'Ene 2025 – Jul 2025',
+		bullets: [
+			'Automaticé la generación de reportes en Excel, reduciendo un proceso manual de una semana a un clic.',
+			'Desarrollé funcionalidades web con React, JavaScript, Astro y ColdFusion, mejorando la experiencia funcional y responsive de las interfaces.',
+			'Actualicé reportes en Jaspersoft Studio y resolví incidentes reportados por usuarios.',
+		],
+	},
+	{
+		role: 'Practicante de Ingeniería de Software · Web Support Specialist',
+		company: 'Designer Software S.A.S.',
+		period: 'Ene 2024 – Jul 2024',
+		bullets: [
+			'Brindé soporte y capacitación a un promedio de 8 clientes al mes en la implementación de soluciones web personalizadas.',
+			'Desarrollé reportes empresariales en Jaspersoft Studio, incluyendo reportes de nómina, y automaticé la configuración de bases de datos en SQL Server.',
+			'Administré Payara Server 5 a nivel básico y resolví incidentes funcionales y técnicos.',
+		],
+	},
+];
+
+const courses = [
+	'Fundamentos de AWS: Cloud, Serverless y Operación — Commit Academy (2026)',
+	'Astro 4, React, TypeScript y Tailwind — Udemy (2025)',
+	'Semana de la Inteligencia Artificial — Hashtag Treinamentos (2026)',
+	'Diseño UX/UI para Landing Pages — Domestika (2026)',
+	'Fundamentos de JavaScript — Platzi (2025)',
+	'Introducción al Desarrollo Backend — Platzi (2025)',
+];
+---
+
+<Layout title="Sobre mí — Sara Otero" description="Sobre Sara Otero Useche: experiencia, formación y stack técnico.">
+	<section class="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+		<div class="grid gap-10 md:grid-cols-[0.7fr_1.3fr] md:items-start">
+			<img
+				src={fotoCV.src}
+				alt="Foto de Sara Otero"
+				class="h-48 w-48 rounded-2xl object-cover ring-4 ring-white md:h-56 md:w-56"
+			/>
+
+			<div>
+				<h1 class="font-display text-3xl text-ink sm:text-4xl">Sobre mí</h1>
+				<p class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
+					Soy egresada de Ingeniería de Software (grado en trámite, previsto
+					para noviembre de 2026) con 18 meses de experiencia práctica en
+					desarrollo y soporte de aplicaciones empresariales, en tres períodos
+					consecutivos de práctica profesional. Conecto sistemas de datos
+					empresariales tradicionales —SQL Server, reportería con
+					JasperReports, aplicaciones en ColdFusion— con desarrollo web
+					moderno en React, JavaScript, TypeScript y Astro. Uso con frecuencia
+					herramientas de IA —Claude, GitHub Copilot, v0 by Vercel— para
+					acelerar el desarrollo, aplicándolas con criterio técnico propio.
+				</p>
+			</div>
+		</div>
+
+		<h2 class="mt-14 font-display text-xl text-ink">Experiencia profesional</h2>
+		<div class="mt-6 space-y-8">
+			{
+				experience.map((job) => (
+					<div class="border-l-2 border-line pl-5">
+						<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+							<p class="font-medium text-ink">
+								{job.role} <span class="text-ink-soft">· {job.company}</span>
+							</p>
+							<p class="font-mono text-xs text-ink-soft">{job.period}</p>
+						</div>
+						<ul class="mt-2 list-disc space-y-1 pl-4 text-sm leading-relaxed text-ink-soft">
+							{job.bullets.map((b) => <li>{b}</li>)}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="mt-14 grid gap-10 sm:grid-cols-2">
+			<div>
+				<h2 class="font-display text-xl text-ink">Formación</h2>
+				<p class="mt-4 text-sm font-medium text-ink">Ingeniería de Software</p>
+				<p class="text-sm text-ink-soft">
+					Fundación Universitaria Empresarial de la Cámara de Comercio de Bogotá
+				</p>
+				<p class="font-mono text-xs text-ink-soft">Ene 2023 – Nov 2026 · grado en trámite</p>
+
+				<p class="mt-6 text-sm font-medium text-ink">Formación complementaria</p>
+				<ul class="mt-2 list-disc space-y-1 pl-4 text-sm text-ink-soft">
+					{courses.map((c) => <li>{c}</li>)}
+				</ul>
+
+				<p class="mt-6 text-sm font-medium text-ink">Idiomas</p>
+				<p class="text-sm text-ink-soft">Español nativo · Inglés A2</p>
+			</div>
+
+			<div>
+				<h2 class="font-display text-xl text-ink">Stack técnico</h2>
+				<div class="mt-4 grid gap-6">
+					{
+						skillGroups.map((group) => (
+							<div>
+								<p class="text-sm font-medium text-ink-soft">{group.label}</p>
+								<ul class="mt-2 flex flex-wrap gap-2 font-mono text-xs text-indigo-dim">
+									{group.items.map((item) => (
+										<li class="rounded-md bg-indigo/10 px-2 py-1">{item}</li>
+									))}
+								</ul>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
